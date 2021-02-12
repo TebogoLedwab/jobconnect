@@ -1,0 +1,82 @@
+<div class="modal-header">
+  <h4 class="modal-title ml-auto">Sign Up</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="close_modal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body text-center mt-3">
+
+
+  <form [formGroup]="userRegistrationForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control shadow-none" id="name" name="name" formControlName="name"
+            aria-describedby="name" placeholder="Enter name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control shadow-none" id="surname" name="surname" #surname
+            aria-describedby="surname" placeholder="Enter surname" formControlName="surname">
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <input [class.is-invalid]="primEmail.invalid && primEmail.touched" type="email" placeholder="Email"
+        class="form-control" formControlName="primaryEmail" />
+
+      <div *ngIf="(primEmail.invalid && primEmail.touched) || primEmail.dirty">
+        <small *ngIf="primEmail.errors?.required" class="text-danger">Primary email is required</small>
+      </div>
+
+    </div>
+
+
+
+    <div class="form-group">
+
+      <div class="text-right">
+        <i id="exampleInputPassword1" class="text-primary" (click)="openModal(signin)"> </i>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <input type="password" class="form-control shadow-none" id="password" name="password"
+        formControlName="password" placeholder="Password" autocomplete="yes" />
+    </div>
+
+
+
+    <div class="form-group">
+      <input type="password" class="form-control shadow-none" id="passwordConfirm" name="passwordConfirm"
+        #passwordConfirm placeholder="Confirm password" autocomplete="yes" formControlName="passwordConfirm">
+    </div>
+
+
+    <div class="text-right">
+      <i id="exampleInputPassword1" class="text-primary" (click)="openModal(signin)">Do you have an
+        account? Sign In</i>
+    </div>
+
+    <br>
+
+    <button type="submit"  class="btn btn-primary"  [disabled]="!userRegistrationForm.valid" >
+      Submit
+    </button>
+
+  </form>
+
+
+
+
+
+</div>
+
+
+<ng-template #signin>
+  <Signin></Signin>
+</ng-template>

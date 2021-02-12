@@ -1,0 +1,27 @@
+version: '2' # specify docker-compose version
+# Define the services/containers to be run
+
+services:
+
+  frontend: #name of the first service
+    build: frontend # specify the directory of the Dockerfile
+    ports:
+    - "4200:4200" # specify port forewarding
+    container_name: front-container
+    # restart: always
+
+  backend: #name of the second service
+    build: backend # specify the directory of the Dockerfile
+    ports:
+    - "3000:3000"
+    container_name: back-container
+    # restart: always
+    links:
+    - database
+
+  database:
+    image: mongo:4.0.10-xenial
+    container_name: mongo:4.0.10-xenial
+    # restart: always
+
+

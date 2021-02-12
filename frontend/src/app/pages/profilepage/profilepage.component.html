@@ -1,0 +1,85 @@
+<div class="profile">
+  <div class="profile__card animate__animated animate__fadeIn">
+    <div class="profile__cardLeft">
+      <div class="video">
+        <iframe [src]="url | safe"  allowfullscreen="allowfullscreen"></iframe>
+      </div>
+   
+    </div>
+
+    <div class="profile__cardRight text-center mt-5" *ngIf="selected_user">
+      <small class="h3 text-muted mb-5">
+        {{
+          shareService.to_titleCase(selected_user.name) +
+            " " +
+            shareService.to_titleCase(selected_user.surname)
+        }}
+      </small>
+      <hr class="mb-3 mx-5" />
+
+      <div class="row ml-3" style="text-align:left">
+        <div class="col">
+          Email:<a href="mailto:{{ selected_user.email }}" style="color: black;"> {{ selected_user.email }}</a>
+        </div>
+
+        <!-- Phone number section -->
+        <div class="col" *ngIf="selected_user.phoneNumber">
+          <p class="">Cell: {{ selected_user.phoneNumber }}</p>
+        </div>
+      </div>
+
+      <div class="col" *ngIf="!selected_user.phoneNumber">
+        <p class="">
+          Cell: N/A
+        </p>
+      </div>
+
+      <div class="row ml-3" style="text-align:left">
+    <!-- Location section -->
+        <div class="col" *ngIf="selected_user.location">
+          <p class="">
+               Location: {{ selected_user.location }}
+          </p>
+        </div>
+ <!-- incase the location is not defined -->
+        <div class="col" *ngIf="!selected_user.location">
+          <p class="">
+            Location: N/A
+          </p>
+        </div>
+        <!-- Age section -->
+        <div class="col" *ngIf="selected_user.age">
+          <p class="">
+               Age: {{ selected_user.age }}
+          </p>
+        </div>
+        <!-- incase the age is not defined -->
+        <div class="col" *ngIf="!selected_user.age">
+          <p class="">
+              Age: N/A
+          </p>
+        </div>
+      </div>
+
+      <span class="">{{
+        selected_user.skills.length > 0 ? "Skills:" : "SKILLS NOT UPDATED"
+      }}</span>
+      <br />
+      <small class="font-italic" style="font-size:15px;">
+        <span *ngFor="let skill of selected_user.skills"
+          >{{ skill.name }},
+        </span>
+      </small>
+      <br>
+      <br>
+      <br>
+      <br>
+      <button
+      class="back_button float-right mb-5 mx-5 btn btn-outline-primary btn-sm ml-4"
+      (click)="back()"
+    >
+      < &nbsp; Back
+    </button>
+    </div>
+  </div>
+</div>

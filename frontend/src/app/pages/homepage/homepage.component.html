@@ -1,0 +1,74 @@
+<div class="homepage">
+  <div class="homepage__intro text-center">
+    <div class="container">
+      <h1>
+        The Plug is a platform where individuals are able to advertise their
+        skills and showcase their capabilities.
+      </h1>
+    </div>
+  </div>
+
+  <div class="container categories__hearder text-center">
+    <h2 style="position: relative; top: 40px;">Click on any icon and see what happens!</h2>
+  </div>
+
+  <div class="homepage__body">
+    <!--small space nyana yabo-->
+    <div class="container">
+      <div class="homepage__category">
+        <div class="row">
+          <div class="col-6 col-md-3 text-center mb-2 category" (click)="shuffle_by_category('Cooking')">
+            <img src="../../../assets/images/cooking.png" width="100px" class="mb-2" />
+            <br />
+            <span>Cooking</span>
+          </div>
+          <div class="col-6 col-md-3 text-center mb-2 category" (click)="shuffle_by_category('Laundry')">
+            <img src="../../../assets/images/laundry.png" width="100px" class="mb-2" />
+            <br />
+            <span> Laundry</span>
+          </div>
+          <div class="col-6 col-md-3 text-center mb-2 category" (click)="shuffle_by_category('Web development')">
+            <img src="../../../assets/images/engineer.png" width="100px" class="mb-2" />
+            <br />
+            <span>Web Development</span>
+          </div>
+          <div *ngIf="!userService.is_loggedIn" class="col-6 col-md-3 text-center mb-2 category" (click)="view_other_services()"
+            (click)="openModal(signin)">
+            <img src="../../../assets/images/keypad.png" width="100px" class="mb-2" />
+            <br />
+            <span>Other</span>
+          </div>
+
+          <div *ngIf="userService.is_loggedIn" class="col-6 col-md-3 text-center mb-2 category" routerLink="/dash">
+            <img src="../../../assets/images/keypad.png" width="100px" class="mb-2" />
+            <br />
+            <span>Other</span>
+          </div>
+        </div>
+
+        <div style="height: 5vh"></div>
+        <div class="homepage__cards">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3 animate__animated animate__fadeIn" *ngFor="let user of users_skills | slice: 0:8">
+                <UserCard [user]="user"></UserCard>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br /><br />
+        <br /><br />
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #signin>
+  <Signin></Signin>
+</ng-template>
+
+<ng-template #signup>
+  <Signup></Signup>
+</ng-template>
+
+<Footer></Footer>

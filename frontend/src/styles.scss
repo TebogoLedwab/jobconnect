@@ -1,0 +1,29 @@
+@import "~animate.css/animate.min";
+@import "~ngx-toastr/toastr";
+
+@import "~bootswatch/dist/journal/variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootswatch/dist/journal/bootswatch";
+
+* {
+  margin: 0;
+}
+
+:root {
+  --plug-primary-color: #eb6864;
+  --plug-background-color: #fafafa;
+  --text-color: #393737;
+}
+
+body {
+  background: var(--plug-background-color);
+  color: var(--text-color);
+}
+
+.modal {
+  border-radius: 1rem;
+}
+
+.hand {
+  cursor: pointer;
+}

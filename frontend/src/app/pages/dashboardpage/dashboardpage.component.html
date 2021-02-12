@@ -1,0 +1,62 @@
+<div class="dashboard">
+  <div class="dashboard__intro">
+    <div class="dashboard__header text-center">
+      <div class="container h__1">
+        <h1>Find the right candidate to do the perfect job for you.</h1>
+      </div>
+    </div>
+
+    <!-- Search filter-->
+    <div class="dashboard__filter">
+      <form class="col-md-11 mx-auto flex-container">
+        <div class="col-md-7">
+          <div class="container">
+            <div class="form-row">
+              <div class="input-group input">
+                <!-- Skills -->
+                <select class="form-control" (change)="onOptionsSelectedSkills($event)">
+                  <option readonly>Select skill</option>
+                  <option>All</option>
+                  <option *ngFor="let skill of skills" [value]="skill.name">
+                    {{ skill.name }}
+                  </option>
+                </select>
+
+                <!-- Location -->
+                <select class="form-control" (change)="onOptionsSelectedLocation($event)">
+                  <!-- Displaying location in a list and sorting the list ascending order -->
+                  <option readonly>Select city</option>
+                  <option>All</option>
+                  <option *ngFor="let city of location" [value]="city.name">
+                    {{ city.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div style="height: 1vh"></div>
+
+  <div class="dashboard__content">
+    <div class="container">
+      <div class="row" *ngIf="users_skills.length > 0; else noSkill">
+        <div class="col-md-3 animate__animated animate__fadeIn" *ngFor="let user of users_skills">
+          <UserCard [user]="user"></UserCard>
+        </div>
+      </div>
+
+      <ng-template #noSkill>
+        <div class="row text-center no__results">
+          <div class="col-md-3 text-center animate__animated animate__fadeIn">
+            <img src="../../../assets/images/empty.gif" alt="No results">
+          </div>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+</div>

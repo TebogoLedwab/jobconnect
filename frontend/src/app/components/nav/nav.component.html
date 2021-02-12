@@ -1,0 +1,66 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-primary ">
+  <a class="navbar-brand" routerLink="/" (click)="scrollTo('home')">
+    <img src="../../../assets/images/logo1.png" width="90px" alt="logo">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+
+    <ul class="navbar-nav ml-auto" *ngIf="!userService.is_loggedIn">
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+          aria-expanded="false" aria-label="Toggle navigation" routerLink="/" (click)="scrollTo('home')">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+          aria-expanded="false" aria-label="Toggle navigation" routerLink="/"
+          (click)="scrollTo('category')">Category</a>
+      </li>
+      <li class="nav-item" (click)="openModal(signin)">
+        <a class="nav-link" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+          aria-expanded="false" aria-label="Toggle navigation" routerLink="/">Sign in</a>
+      </li>
+      <li class="nav-item" (click)="openModal(signup)">
+        <a class="nav-link" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+          aria-expanded="false" aria-label="Toggle navigation" routerLink="/">Sign up</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto" *ngIf="userService.is_loggedIn">
+
+      <li class="nav-item dropdown">
+
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">Welcome
+          {{ storeService?.get_user?.name ? shareService.to_titleCase(storeService.get_user.name) : '' }}</a>
+
+
+        <div class="dropdown-menu">
+          <a class="dropdown-item" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+            aria-expanded="false" aria-label="Toggle navigation" routerLink="/dash">Dashboard</a>
+          <a class="dropdown-item" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+            aria-expanded="false" aria-label="Toggle navigation" routerLink="/dash/profile">Profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item hand" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation"
+            (click)="userService.logout()">Sign out</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<ng-template #signin>
+  <Signin></Signin>
+</ng-template>
+
+<ng-template #signup>
+  <Signup></Signup>
+</ng-template>

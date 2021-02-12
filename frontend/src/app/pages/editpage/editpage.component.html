@@ -1,0 +1,213 @@
+<div class="edit">
+  <div class="edit__card animate__animated animate__fadeIn">
+    <div class="edit__cardLeft">
+      <div class="video">
+        <video width="100%" controls>
+          <source [src]="getVideo(user.video)" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div class="edit__cardRight text-center" *ngIf="storeService.get_user">
+      <div class="row">
+        <button
+          class="btn btn-outline-primary btn-sm ml-4 animate__animated animate__fadeInRight animate__delay-3s"
+          (click)="back()"
+        >
+          < &nbsp; Back
+        </button>
+      </div>
+      <small class="h3 text__edit text-muted"> Edit Profile </small>
+      <div class="user__image text-center">
+        <img
+          [src]="getImage(user.image)"
+          class="img-fluid"
+          onerror="this.src='../../../assets/images/crop.png'"
+          alt="user image"
+        />
+      </div>
+      <hr class="mb-3 mx-5" />
+
+      <!-- <p class="text-muted">Email: {{ storeService.get_user.email }}</p>
+
+      <span
+        class="text-muted">{{ storeService.get_user.skills.length > 0 ? 'SKILLS' : 'SKILLS NOT UPDATED' }}</span><br>
+      <small class="text-muted font-italic">
+        <span *ngFor="let skill of storeService.get_user.skills">{{ skill.name }}, </span>
+      </small> -->
+
+      <div class="modal-body text-center mt-3">
+        <form [formGroup]="updateForm">
+          <fieldset>
+            <div class="form-group">
+              <div class="row">
+                <div class="col text-left">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    class="form-control shadow-none"
+                    id="name"
+                    name="name"
+                    #name
+                    aria-describedby="name"
+                    formControlName="name"
+                    placeholder="Enter name"
+                  />
+                </div>
+                <div class="col text-left">
+                  <label for="surname">Surname</label>
+                  <input
+                    type="text"
+                    class="form-control shadow-none"
+                    id="surname"
+                    name="surname"
+                    #surname
+                    aria-describedby="surname"
+                    formControlName="surname"
+                    placeholder="Enter surname"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col text-left col-md-6">
+                  <label for="name">Location</label>
+                  <select
+                    class="form-control"
+                    id="location"
+                    name="location"
+                    #location
+                    formControlName="location"
+                  >
+                    <!-- Displaying location in a list and sorting the list ascending order -->
+                    <option readonly>Select location</option>
+                    <option *ngFor="let city of locations">
+                      {{ city.name }}
+                    </option>
+                  </select>
+                </div>
+                <div class="col text-left col-md-2">
+                  <label for="surname">Age</label>
+                  <input
+                    type="text"
+                    class="form-control shadow-none"
+                    id="age"
+                    name="age"
+                    #age
+                    aria-describedby="age"
+                    formControlName="age"
+                    placeholder="Age"
+                  />
+                </div>
+                <div class="col text-left col-md-4">
+                  <label for="surname">Phone</label>
+                  <input
+                    type="text"
+                    class="form-control shadow-none"
+                    id="phone"
+                    name="phone"
+                    #phone
+                    aria-describedby="phone"
+                    formControlName="phoneNumber"
+                    placeholder="Enter phone"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group text-left">
+              <label for="skills">Provide your skills</label>
+              <div id="multiselect-chip-customization" class="control-section">
+                <div class="control-styles ms-chip-customize">
+                  <ejs-multiselect
+                    id="chip-customization"
+                    name="skills"
+                    id="skills"
+                    [value]="my_skills"
+                    [dataSource]="skills"
+                    (tagging)="users_selected_skills($event)"
+                    [mode]="box"
+                    placeholder="Provide your skills"
+                    [fields]="fields"
+                  ></ejs-multiselect>
+                </div>
+              </div>
+            </div>
+
+            <br />
+            <div class="form-group buttons__down">
+              <div class="row">
+                <div class="col text-left">
+                  <!-- Upload video section -->
+                  <form class="text-center mt-4">
+                    <input
+                      style="display: none"
+                      type="file"
+                      (change)="onFileChanged($event)"
+                      #fileInput
+                    />
+                    <button
+                      class="btn btn-outline-primary done__button"
+                      (click)="fileInput.click()"
+                    >
+                      <span
+                        theme="light"
+                        tooltip="Upload your video N.B, Explain everything about yourself."
+                        placement="bottom"
+                        show-delay="100"
+                        >Upload Video</span
+                      >
+                    </button>
+                  </form>
+                </div>
+                <div class="col text-left">
+                  <!-- Upload image section -->
+                  <form class="text-center mt-4">
+                    <input
+                      style="display: none"
+                      type="file"
+                      (change)="onFileChanged($event)"
+                      #fileInput
+                    />
+
+                    <button
+                      class="btn btn-outline-primary done__button"
+                      (click)="fileInput.click()"
+                    >
+                      <span
+                        theme="light"
+                        tooltip="Update your profile picture."
+                        placement="bottom"
+                        show-delay="100"
+                        >Upload Image</span
+                      >
+                    </button>
+                  </form>
+                </div>
+                <div class="col mt-4">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary done__button" 
+                    (click)="videoUpload()"
+                    (click)="onUpload()"
+                    (click)="update_users()"
+                  >
+                    Save &nbsp; >
+                  </button>
+
+                  <!-- <button (click)="openModal(signin)">test</button> -->
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #signin>
+  <uploadguide></uploadguide>
+</ng-template>

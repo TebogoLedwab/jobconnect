@@ -1,0 +1,10 @@
+.modal-header {
+  border-bottom: 1px solid #dee2e600;
+}
+
+i {
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

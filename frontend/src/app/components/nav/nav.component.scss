@@ -1,0 +1,14 @@
+.bg-primary {
+  background-color: #eeeeeee0 !important;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+
+.navbar-light .nav-item:hover .nav-link {
+  color: var(--plug-primary-color);
+}

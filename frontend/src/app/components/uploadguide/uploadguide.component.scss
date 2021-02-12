@@ -1,0 +1,18 @@
+.modal-header {
+    border-bottom: 1px solid #dee2e600;
+}
+
+i {
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+svg{
+    color: var(--plug-primary-color);
+    font-size: 10px;
+}
+small{
+    font-size: 15px;
+}

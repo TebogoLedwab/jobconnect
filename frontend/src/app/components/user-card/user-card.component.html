@@ -1,0 +1,38 @@
+<div class="user__card box">
+  <div class="user__image text-center">
+    <img
+      [src]="getImage(user.image)"
+      onerror="this.src='../../../assets/images/crop.png'"
+      class="img-fluid"
+      alt="user image"
+    />
+  </div>
+
+  <!-- <div class="user__body text-center" *ngIf="user_with_skills"> -->
+  <div class="user__body text-center">
+    <small class="h3 text-muted">{{
+      shareService.to_titleCase(user.name)
+    }}</small>
+    <hr class="mb-3" />
+    <span class="text-muted">{{
+      user.skills.length > 0 ? "SKILLS" : "SKILLS NOT UPDATED"
+    }}</span
+    ><br />
+    <small class="text-muted font-italic">
+      <span *ngFor="let skill of user.skills">{{ skill.name }}, </span>
+    </small>
+  </div>
+
+  <div class="user__footer text-center">
+    <button
+      class="btn btn-outline-primary"
+      (click)="shareService.view_profile(signin, user)"
+    >
+      View profile
+    </button>
+  </div>
+</div>
+
+<ng-template #signin>
+  <Signin></Signin>
+</ng-template>

@@ -1,0 +1,152 @@
+.profile {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// big screen
+@media only screen and (min-width: 600px) {
+  .profile__card {
+    -webkit-box-shadow: -1px 22px 68px -34px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 22px 68px -34px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 22px 68px -34px rgba(0, 0, 0, 0.75);
+    background-color: #ffffff;
+    width: 70%;
+    height: 50vh;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: row;
+
+    .profile__cardLeft {
+      width: 40%;
+      height: 100%;
+      background-image: linear-gradient(
+          to right top,
+          #eb6964af,
+          #eb6864af,
+          #eb6864af,
+          #eb6864af,
+          #eb6864af,
+          #ef7179af,
+          #f07b8eaf,
+          #ef86a0af,
+          #e8a0c2af,
+          #e0bad9af,
+          #ddd1e4af,
+          #e5e5e500
+        ),
+        url("../../../assets/images/light_bg.jpg");
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .video {
+        width: 100% !important;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .video iframe {
+        width: 90% !important;
+        height: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .profile__cardRight {
+      width: 60%;
+      height: 100%;
+      padding: 35px 10px 0;
+      
+      .back_button{
+       width: 12%;
+       height: 8%;
+  
+     
+      }
+    }
+  }
+}
+
+// small screen
+@media only screen and (max-width: 600px) {
+  .profile__card {
+    -webkit-box-shadow: -1px 22px 68px -34px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 22px 68px -34px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 22px 68px -34px rgba(0, 0, 0, 0.75);
+    background-color: #ffffff;
+    width: 95%;
+    height: 85vh;
+    border-radius: 1rem;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+
+    .profile__cardLeft {
+      width: 100%;
+      height: 40%;
+      background-image: linear-gradient(
+          to right top,
+          #eb6964af,
+          #eb6864af,
+          #eb6864af,
+          #eb6864af,
+          #eb6864af,
+          #ef7179af,
+          #f07b8eaf,
+          #ef86a0af,
+          #e8a0c2af,
+          #e0bad9af,
+          #ddd1e4af,
+          #e5e5e500
+        ),
+        url("../../../assets/images/light_bg.jpg");
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .video {
+        width: 90% !important;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .profile__cardRight {
+      width: 100%;
+      height: 60%;
+      padding-top: 40px;
+
+      .back_button{ 
+        position: relative;  
+        bottom: 60px;
+       }
+    }
+  }
+}
+
+.vid-content{
+  position: absolute;
+  top:40%;
+  text-align: center;
+}

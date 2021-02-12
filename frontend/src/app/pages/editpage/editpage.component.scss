@@ -1,0 +1,212 @@
+.edit {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// big screen
+@media only screen and (min-width: 600px) {
+  .edit__card {
+    -webkit-box-shadow: -1px 22px 68px -34px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 22px 68px -34px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 22px 68px -34px rgba(0, 0, 0, 0.75);
+    background-color: #ffffff;
+    width: 70%;
+    height: 75vh;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: row;
+
+    .edit__cardLeft {
+      width: 40%;
+      height: 100%;
+      background-image: linear-gradient(to right top,
+          #eb6964af,
+          #eb6864af,
+          #eb6864af,
+          #eb6864af,
+          #eb6864af,
+          #ef7179af,
+          #f07b8eaf,
+          #ef86a0af,
+          #e8a0c2af,
+          #e0bad9af,
+          #ddd1e4af,
+          #e5e5e500),
+        url("../../../assets/images/light_bg.jpg");
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .video {
+        width: 90% !important;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .edit__cardRight {
+      width: 60%;
+      height: auto;
+      padding: 3em 10px 0;
+      // background-color: cadetblue;
+    }
+
+  }
+
+  .custom-file-upload {
+    background-color: #eb6864;
+    color: white;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 5px 5px;
+  }
+
+  .text__edit {
+    position: relative;
+    bottom: 35px;
+  }
+
+  .buttons__down {
+    position: relative;
+    bottom: 40px;
+  }
+
+  .user__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    border-radius: 1rem 1rem 0 0;
+    position: relative;
+    bottom: 15px;
+
+    img {
+      width: 20%;
+      border-radius: 50%;
+      border: solid 3px var(--plug-primary-color);
+    }
+  }
+  .red-tooltip + .tooltip > .tooltip-inner {background-color: #f00;}
+
+}
+
+// small screen
+@media only screen and (max-width: 600px) {
+  .edit__card {
+    -webkit-box-shadow: -1px 22px 68px -34px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 22px 68px -34px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 22px 68px -34px rgba(0, 0, 0, 0.75);
+    background-color: #ffffff;
+    width: 95%;
+    height: auto;
+    border-radius: 1rem;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 60px;
+    
+
+    .edit__cardLeft {
+      width: 100%;
+      height: auto;
+      background-image: linear-gradient(to right top,
+          #eb6964af,
+          #eb6864af,
+          #eb6864af,
+          #eb6864af,
+          #eb6864af,
+          #ef7179af,
+          #f07b8eaf,
+          #ef86a0af,
+          #e8a0c2af,
+          #e0bad9af,
+          #ddd1e4af,
+          #e5e5e500),
+        url("../../../assets/images/light_bg.jpg");
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .video {
+        width: 90% !important;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .edit__cardRight {
+      width: 100%;
+      height: auto;
+      padding-top: 5px;
+    }
+  }
+
+  .custom-file-upload {
+    background-color: #eb6864;
+    color: white;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 65%
+  }
+
+  .text__edit {
+    position: relative;
+    bottom: 30px;
+  }
+
+  .buttons__down {
+    position: relative;
+    bottom: 50px;
+  }
+
+  .done__button {
+    font-size: 65%;
+  }
+
+  .user__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    border-radius: 1rem 1rem 0 0;
+    position: relative;
+    bottom: 10px;
+
+    img {
+      width: 30%;
+      border-radius: 50%;
+      border: solid 3px var(--plug-primary-color);
+    }
+  }
+
+}
+//image size
+.img-fluid
+{
+  height: 115px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
